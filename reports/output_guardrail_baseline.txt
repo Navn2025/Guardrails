@@ -1,0 +1,633 @@
+........................................................................ [ 13%]
+........................................................................ [ 27%]
+........................................................................ [ 41%]
+........................................................................ [ 55%]
+........................................................................ [ 69%]
+............................................................FFFFFFFFFFFF [ 82%]
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF [ 96%]
+FFF..............                                                        [100%]
+================================== FAILURES ===================================
+________________ test_detect_and_redact_sensitive_value[email] ________________
+tests\test_pii_detector.py:46: in test_detect_and_redact_sensitive_value
+    assert any(
+tests\test_pii_detector.py:47: in <genexpr>
+    finding.entity_type == entity_type and text[finding.start:finding.end] == sensitive
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+____________ test_detect_and_redact_sensitive_value[indian-mobile] ____________
+tests\test_pii_detector.py:46: in test_detect_and_redact_sensitive_value
+    assert any(
+tests\test_pii_detector.py:47: in <genexpr>
+    finding.entity_type == entity_type and text[finding.start:finding.end] == sensitive
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+______________ test_detect_and_redact_sensitive_value[test-card] ______________
+tests\test_pii_detector.py:46: in test_detect_and_redact_sensitive_value
+    assert any(
+tests\test_pii_detector.py:47: in <genexpr>
+    finding.entity_type == entity_type and text[finding.start:finding.end] == sensitive
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+___________ test_detect_and_redact_sensitive_value[api-assignment] ____________
+tests\test_pii_detector.py:46: in test_detect_and_redact_sensitive_value
+    assert any(
+tests\test_pii_detector.py:47: in <genexpr>
+    finding.entity_type == entity_type and text[finding.start:finding.end] == sensitive
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+_______________ test_detect_and_redact_sensitive_value[bearer] ________________
+tests\test_pii_detector.py:46: in test_detect_and_redact_sensitive_value
+    assert any(
+tests\test_pii_detector.py:47: in <genexpr>
+    finding.entity_type == entity_type and text[finding.start:finding.end] == sensitive
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+______________ test_detect_and_redact_sensitive_value[password] _______________
+tests\test_pii_detector.py:46: in test_detect_and_redact_sensitive_value
+    assert any(
+tests\test_pii_detector.py:47: in <genexpr>
+    finding.entity_type == entity_type and text[finding.start:finding.end] == sensitive
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+_________________ test_detect_and_redact_sensitive_value[jwt] _________________
+tests\test_pii_detector.py:46: in test_detect_and_redact_sensitive_value
+    assert any(
+tests\test_pii_detector.py:47: in <genexpr>
+    finding.entity_type == entity_type and text[finding.start:finding.end] == sensitive
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+___________________ test_indian_mobile_formats[9000000000] ____________________
+tests\test_pii_detector.py:58: in test_indian_mobile_formats
+    assert {finding.entity_type for finding in findings} == {"PHONE_NUMBER"}
+            ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+___________________ test_indian_mobile_formats[90000 00000] ___________________
+tests\test_pii_detector.py:58: in test_indian_mobile_formats
+    assert {finding.entity_type for finding in findings} == {"PHONE_NUMBER"}
+            ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+___________________ test_indian_mobile_formats[90000.00000] ___________________
+tests\test_pii_detector.py:58: in test_indian_mobile_formats
+    assert {finding.entity_type for finding in findings} == {"PHONE_NUMBER"}
+            ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+_________________ test_indian_mobile_formats[+91-90000-00000] _________________
+tests\test_pii_detector.py:58: in test_indian_mobile_formats
+    assert {finding.entity_type for finding in findings} == {"PHONE_NUMBER"}
+            ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+_____________ test_luhn_valid_test_card_numbers[4111111111111111] _____________
+tests\test_pii_detector.py:66: in test_luhn_valid_test_card_numbers
+    assert {finding.entity_type for finding in findings} == {"CREDIT_CARD"}
+            ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+___________ test_luhn_valid_test_card_numbers[4242 4242 4242 4242] ____________
+tests\test_pii_detector.py:66: in test_luhn_valid_test_card_numbers
+    assert {finding.entity_type for finding in findings} == {"CREDIT_CARD"}
+            ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+___________ test_luhn_valid_test_card_numbers[5555-5555-5555-4444] ____________
+tests\test_pii_detector.py:66: in test_luhn_valid_test_card_numbers
+    assert {finding.entity_type for finding in findings} == {"CREDIT_CARD"}
+            ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+___ test_number_failing_luhn_is_not_classified_as_a_card[4111111111111112] ____
+tests\test_pii_detector.py:75: in test_number_failing_luhn_is_not_classified_as_a_card
+    assert not any(finding.entity_type == "CREDIT_CARD" for finding in findings)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_pii_detector.py:75: in <genexpr>
+    assert not any(finding.entity_type == "CREDIT_CARD" for finding in findings)
+                   ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+__ test_number_failing_luhn_is_not_classified_as_a_card[4242 4242 4242 4243] __
+tests\test_pii_detector.py:75: in test_number_failing_luhn_is_not_classified_as_a_card
+    assert not any(finding.entity_type == "CREDIT_CARD" for finding in findings)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_pii_detector.py:75: in <genexpr>
+    assert not any(finding.entity_type == "CREDIT_CARD" for finding in findings)
+                   ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+__ test_number_failing_luhn_is_not_classified_as_a_card[5555-5555-5555-4445] __
+tests\test_pii_detector.py:75: in test_number_failing_luhn_is_not_classified_as_a_card
+    assert not any(finding.entity_type == "CREDIT_CARD" for finding in findings)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_pii_detector.py:75: in <genexpr>
+    assert not any(finding.entity_type == "CREDIT_CARD" for finding in findings)
+                   ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+__ test_supported_provider_specific_formats_are_fully_redacted[openai-style] __
+tests\test_pii_detector.py:95: in test_supported_provider_specific_formats_are_fully_redacted
+    assert any(
+tests\test_pii_detector.py:96: in <genexpr>
+    finding.entity_type == entity_type and text[finding.start:finding.end] == secret
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+_ test_supported_provider_specific_formats_are_fully_redacted[project-style] __
+tests\test_pii_detector.py:95: in test_supported_provider_specific_formats_are_fully_redacted
+    assert any(
+tests\test_pii_detector.py:96: in <genexpr>
+    finding.entity_type == entity_type and text[finding.start:finding.end] == secret
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+_ test_supported_provider_specific_formats_are_fully_redacted[trailing-hyphen] _
+tests\test_pii_detector.py:95: in test_supported_provider_specific_formats_are_fully_redacted
+    assert any(
+tests\test_pii_detector.py:96: in <genexpr>
+    finding.entity_type == entity_type and text[finding.start:finding.end] == secret
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+__ test_supported_provider_specific_formats_are_fully_redacted[github-token] __
+tests\test_pii_detector.py:95: in test_supported_provider_specific_formats_are_fully_redacted
+    assert any(
+tests\test_pii_detector.py:96: in <genexpr>
+    finding.entity_type == entity_type and text[finding.start:finding.end] == secret
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+___ test_supported_provider_specific_formats_are_fully_redacted[github-pat] ___
+tests\test_pii_detector.py:95: in test_supported_provider_specific_formats_are_fully_redacted
+    assert any(
+tests\test_pii_detector.py:96: in <genexpr>
+    finding.entity_type == entity_type and text[finding.start:finding.end] == secret
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+____ test_supported_provider_specific_formats_are_fully_redacted[aws-akia] ____
+tests\test_pii_detector.py:95: in test_supported_provider_specific_formats_are_fully_redacted
+    assert any(
+tests\test_pii_detector.py:96: in <genexpr>
+    finding.entity_type == entity_type and text[finding.start:finding.end] == secret
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+____ test_supported_provider_specific_formats_are_fully_redacted[aws-asia] ____
+tests\test_pii_detector.py:95: in test_supported_provider_specific_formats_are_fully_redacted
+    assert any(
+tests\test_pii_detector.py:96: in <genexpr>
+    finding.entity_type == entity_type and text[finding.start:finding.end] == secret
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+_________ test_contextual_secret_assignments[api_key=example_secret] __________
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+tests\test_pii_detector.py:125: in <genexpr>
+    finding.entity_type == "ASSIGNED_SECRET" and text[finding.start:finding.end] == assignment
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+_________ test_contextual_secret_assignments[API-KEY: example_secret] _________
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+tests\test_pii_detector.py:125: in <genexpr>
+    finding.entity_type == "ASSIGNED_SECRET" and text[finding.start:finding.end] == assignment
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+_ test_contextual_secret_assignments[api_key="synthetic secret with spaces"] __
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+tests\test_pii_detector.py:125: in <genexpr>
+    finding.entity_type == "ASSIGNED_SECRET" and text[finding.start:finding.end] == assignment
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+_ test_contextual_secret_assignments[api_key='synthetic,secret;with=punctuation'] _
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+tests\test_pii_detector.py:125: in <genexpr>
+    finding.entity_type == "ASSIGNED_SECRET" and text[finding.start:finding.end] == assignment
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+___ test_contextual_secret_assignments["api_key": "synthetic_json_secret"] ____
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+tests\test_pii_detector.py:125: in <genexpr>
+    finding.entity_type == "ASSIGNED_SECRET" and text[finding.start:finding.end] == assignment
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+___ test_contextual_secret_assignments['password': 'synthetic_dict_secret'] ___
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+tests\test_pii_detector.py:125: in <genexpr>
+    finding.entity_type == "ASSIGNED_SECRET" and text[finding.start:finding.end] == assignment
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+______ test_contextual_secret_assignments[OPENAI_API_KEY=example_secret] ______
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+tests\test_pii_detector.py:125: in <genexpr>
+    finding.entity_type == "ASSIGNED_SECRET" and text[finding.start:finding.end] == assignment
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+_ test_contextual_secret_assignments[MY_APP_CLIENT_SECRET=synthetic_client_secret] _
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+tests\test_pii_detector.py:125: in <genexpr>
+    finding.entity_type == "ASSIGNED_SECRET" and text[finding.start:finding.end] == assignment
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+_ test_contextual_secret_assignments[password="synthetic\\"quoted\\"secret"] __
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+tests\test_pii_detector.py:125: in <genexpr>
+    finding.entity_type == "ASSIGNED_SECRET" and text[finding.start:finding.end] == assignment
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+_ test_contextual_secret_assignments[password='synthetic\\'quoted\\'secret'] __
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+tests\test_pii_detector.py:125: in <genexpr>
+    finding.entity_type == "ASSIGNED_SECRET" and text[finding.start:finding.end] == assignment
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+__________ test_contextual_secret_assignments[token=synthetic_token] __________
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+tests\test_pii_detector.py:125: in <genexpr>
+    finding.entity_type == "ASSIGNED_SECRET" and text[finding.start:finding.end] == assignment
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+________ test_contextual_secret_assignments[secret: synthetic_secret] _________
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+tests\test_pii_detector.py:125: in <genexpr>
+    finding.entity_type == "ASSIGNED_SECRET" and text[finding.start:finding.end] == assignment
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+_____________ test_contextual_secret_assignments[api_key="None"] ______________
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+tests\test_pii_detector.py:125: in <genexpr>
+    finding.entity_type == "ASSIGNED_SECRET" and text[finding.start:finding.end] == assignment
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+_____________ test_contextual_secret_assignments[api_key="null"] ______________
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+tests\test_pii_detector.py:125: in <genexpr>
+    finding.entity_type == "ASSIGNED_SECRET" and text[finding.start:finding.end] == assignment
+    ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+_ test_empty_placeholder_or_harmless_text_is_unchanged[Ordinary text with no sensitive values.] _
+tests\test_pii_detector.py:158: in test_empty_placeholder_or_harmless_text_is_unchanged
+    assert detect_and_redact_pii(text) == ([], text)
+E   AssertionError: assert ('Ordinary te... values.', []) == ([], 'Ordinar...tive values.')
+E     
+E     At index 0 diff: 'Ordinary text with no sensitive values.' != []
+E     Use -v to get more diff
+_ test_empty_placeholder_or_harmless_text_is_unchanged[Explain what token, password, secret, and API key mean.] _
+tests\test_pii_detector.py:158: in test_empty_placeholder_or_harmless_text_is_unchanged
+    assert detect_and_redact_pii(text) == ([], text)
+E   AssertionError: assert ('Explain wha...ey mean.', []) == ([], 'Explain...PI key mean.')
+E     
+E     At index 0 diff: 'Explain what token, password, secret, and API key mean.' != []
+E     Use -v to get more diff
+_ test_empty_placeholder_or_harmless_text_is_unchanged[The token and password should be kept secret.] _
+tests\test_pii_detector.py:158: in test_empty_placeholder_or_harmless_text_is_unchanged
+    assert detect_and_redact_pii(text) == ([], text)
+E   AssertionError: assert ('The token a... secret.', []) == ([], 'The tok...kept secret.')
+E     
+E     At index 0 diff: 'The token and password should be kept secret.' != []
+E     Use -v to get more diff
+_ test_empty_placeholder_or_harmless_text_is_unchanged[api_key_count=3; token_count=4; password_length=12] _
+tests\test_pii_detector.py:158: in test_empty_placeholder_or_harmless_text_is_unchanged
+    assert detect_and_redact_pii(text) == ([], text)
+E   AssertionError: assert ('api_key_cou...ength=12', []) == ([], 'api_key...rd_length=12')
+E     
+E     At index 0 diff: 'api_key_count=3; token_count=4; password_length=12' != []
+E     Use -v to get more diff
+_ test_empty_placeholder_or_harmless_text_is_unchanged[secretary=synthetic_name] _
+tests\test_pii_detector.py:158: in test_empty_placeholder_or_harmless_text_is_unchanged
+    assert detect_and_redact_pii(text) == ([], text)
+E   AssertionError: assert ('secretary=s...tic_name', []) == ([], 'secreta...nthetic_name')
+E     
+E     At index 0 diff: 'secretary=synthetic_name' != []
+E     Use -v to get more diff
+_______ test_empty_placeholder_or_harmless_text_is_unchanged[api_key=] ________
+tests\test_pii_detector.py:158: in test_empty_placeholder_or_harmless_text_is_unchanged
+    assert detect_and_redact_pii(text) == ([], text)
+E   AssertionError: assert ('api_key=', []) == ([], 'api_key=')
+E     
+E     At index 0 diff: 'api_key=' != []
+E     Use -v to get more diff
+_____ test_empty_placeholder_or_harmless_text_is_unchanged[api_key =   ] ______
+tests\test_pii_detector.py:158: in test_empty_placeholder_or_harmless_text_is_unchanged
+    assert detect_and_redact_pii(text) == ([], text)
+E   AssertionError: assert ('api_key =   ', []) == ([], 'api_key =   ')
+E     
+E     At index 0 diff: 'api_key =   ' != []
+E     Use -v to get more diff
+______ test_empty_placeholder_or_harmless_text_is_unchanged[api_key=""] _______
+tests\test_pii_detector.py:158: in test_empty_placeholder_or_harmless_text_is_unchanged
+    assert detect_and_redact_pii(text) == ([], text)
+E   assert ('api_key=""', []) == ([], 'api_key=""')
+E     
+E     At index 0 diff: 'api_key=""' != []
+E     Use -v to get more diff
+______ test_empty_placeholder_or_harmless_text_is_unchanged[password=''] ______
+tests\test_pii_detector.py:158: in test_empty_placeholder_or_harmless_text_is_unchanged
+    assert detect_and_redact_pii(text) == ([], text)
+E   assert ("password=''", []) == ([], "password=''")
+E     
+E     At index 0 diff: "password=''" != []
+E     Use -v to get more diff
+_____ test_empty_placeholder_or_harmless_text_is_unchanged[secret="   "] ______
+tests\test_pii_detector.py:158: in test_empty_placeholder_or_harmless_text_is_unchanged
+    assert detect_and_redact_pii(text) == ([], text)
+E   assert ('secret="   "', []) == ([], 'secret="   "')
+E     
+E     At index 0 diff: 'secret="   "' != []
+E     Use -v to get more diff
+____ test_empty_placeholder_or_harmless_text_is_unchanged[api_key = None] _____
+tests\test_pii_detector.py:158: in test_empty_placeholder_or_harmless_text_is_unchanged
+    assert detect_and_redact_pii(text) == ([], text)
+E   AssertionError: assert ('api_key = None', []) == ([], 'api_key = None')
+E     
+E     At index 0 diff: 'api_key = None' != []
+E     Use -v to get more diff
+_____ test_empty_placeholder_or_harmless_text_is_unchanged[api_key=null] ______
+tests\test_pii_detector.py:158: in test_empty_placeholder_or_harmless_text_is_unchanged
+    assert detect_and_redact_pii(text) == ([], text)
+E   AssertionError: assert ('api_key=null', []) == ([], 'api_key=null')
+E     
+E     At index 0 diff: 'api_key=null' != []
+E     Use -v to get more diff
+____ test_empty_placeholder_or_harmless_text_is_unchanged["api_key": null] ____
+tests\test_pii_detector.py:158: in test_empty_placeholder_or_harmless_text_is_unchanged
+    assert detect_and_redact_pii(text) == ([], text)
+E   assert ('"api_key": null', []) == ([], '"api_key": null')
+E     
+E     At index 0 diff: '"api_key": null' != []
+E     Use -v to get more diff
+_ test_empty_placeholder_or_harmless_text_is_unchanged[access_token=undefined] _
+tests\test_pii_detector.py:158: in test_empty_placeholder_or_harmless_text_is_unchanged
+    assert detect_and_redact_pii(text) == ([], text)
+E   AssertionError: assert ('access_token=undefined', []) == ([], 'access_token=undefined')
+E     
+E     At index 0 diff: 'access_token=undefined' != []
+E     Use -v to get more diff
+_____ test_empty_placeholder_or_harmless_text_is_unchanged[secret=False] ______
+tests\test_pii_detector.py:157: in test_empty_placeholder_or_harmless_text_is_unchanged
+    assert detect_pii(text) == []
+E   AssertionError: assert [PIIFinding(e...rt=7, end=12)] == []
+E     
+E     Left contains one more item: PIIFinding(entity_type='ASSIGNED_SECRET', start=7, end=12)
+E     Use -v to get more diff
+______ test_empty_placeholder_or_harmless_text_is_unchanged[token=True] _______
+tests\test_pii_detector.py:158: in test_empty_placeholder_or_harmless_text_is_unchanged
+    assert detect_and_redact_pii(text) == ([], text)
+E   AssertionError: assert ('token=True', []) == ([], 'token=True')
+E     
+E     At index 0 diff: 'token=True' != []
+E     Use -v to get more diff
+_ test_empty_placeholder_or_harmless_text_is_unchanged[api_key={} ; token=[]] _
+tests\test_pii_detector.py:157: in test_empty_placeholder_or_harmless_text_is_unchanged
+    assert detect_pii(text) == []
+E   AssertionError: assert [PIIFinding(e...art=8, end=9)] == []
+E     
+E     Left contains one more item: PIIFinding(entity_type='ASSIGNED_SECRET', start=8, end=9)
+E     Use -v to get more diff
+_ test_empty_placeholder_or_harmless_text_is_unchanged[api_key=\nThis next line is public.] _
+tests\test_pii_detector.py:157: in test_empty_placeholder_or_harmless_text_is_unchanged
+    assert detect_pii(text) == []
+E   AssertionError: assert [PIIFinding(e...rt=9, end=13)] == []
+E     
+E     Left contains one more item: PIIFinding(entity_type='ASSIGNED_SECRET', start=9, end=13)
+E     Use -v to get more diff
+_ test_empty_placeholder_or_harmless_text_is_unchanged[password: \r\nThis next line is public.] _
+tests\test_pii_detector.py:157: in test_empty_placeholder_or_harmless_text_is_unchanged
+    assert detect_pii(text) == []
+E   AssertionError: assert [PIIFinding(e...t=12, end=16)] == []
+E     
+E     Left contains one more item: PIIFinding(entity_type='ASSIGNED_SECRET', start=12, end=16)
+E     Use -v to get more diff
+________ test_empty_placeholder_or_harmless_text_is_unchanged[Bearer] _________
+tests\test_pii_detector.py:158: in test_empty_placeholder_or_harmless_text_is_unchanged
+    assert detect_and_redact_pii(text) == ([], text)
+E   AssertionError: assert ('Bearer', []) == ([], 'Bearer')
+E     
+E     At index 0 diff: 'Bearer' != []
+E     Use -v to get more diff
+_ test_unterminated_quoted_assignment_redacts_to_line_end[\n-api_key="synthetic_unterminated] _
+tests\test_pii_detector.py:166: in test_unterminated_quoted_assignment_redacts_to_line_end
+    assert len(findings) == 1
+E   assert 60 == 1
+E    +  where 60 = len('Before api_key="[REDACTED_ASSIGNED_SECRET]\nPublic next line.')
+_ test_unterminated_quoted_assignment_redacts_to_line_end[\n-password='synthetic_unterminated] _
+tests\test_pii_detector.py:166: in test_unterminated_quoted_assignment_redacts_to_line_end
+    assert len(findings) == 1
+E   assert 61 == 1
+E    +  where 61 = len("Before password='[REDACTED_ASSIGNED_SECRET]\nPublic next line.")
+_ test_unterminated_quoted_assignment_redacts_to_line_end[\r\n-api_key="synthetic_unterminated] _
+tests\test_pii_detector.py:166: in test_unterminated_quoted_assignment_redacts_to_line_end
+    assert len(findings) == 1
+E   assert 61 == 1
+E    +  where 61 = len('Before api_key="[REDACTED_ASSIGNED_SECRET]\r\nPublic next line.')
+_ test_unterminated_quoted_assignment_redacts_to_line_end[\r\n-password='synthetic_unterminated] _
+tests\test_pii_detector.py:166: in test_unterminated_quoted_assignment_redacts_to_line_end
+    assert len(findings) == 1
+E   assert 62 == 1
+E    +  where 62 = len("Before password='[REDACTED_ASSIGNED_SECRET]\r\nPublic next line.")
+___________ test_empty_assignment_does_not_hide_a_subsequent_secret ___________
+tests\test_pii_detector.py:174: in test_empty_assignment_does_not_hide_a_subsequent_secret
+    assert len(findings) == 1
+E   assert 46 == 1
+E    +  where 46 = len('api_key="";password=[REDACTED_ASSIGNED_SECRET]')
+____ test_multiple_sensitive_values_are_all_redacted_with_original_offsets ____
+tests\test_pii_detector.py:185: in test_multiple_sensitive_values_are_all_redacted_with_original_offsets
+    assert redacted == (
+E   AssertionError: assert [PIIFinding(entity_type='EMAIL', start=0, end=29), PIIFinding(entity_type='PHONE_NUMBER', start=37, end=52), PIIFindin...Finding(entity_type='ASSIGNED_SECRET', start=113, end=131), PIIFinding(entity_type='BEARER_TOKEN', start=155, end=178)] == 'Email=[REDACTED_EMAIL]; phone=[REDACTED_PHONE_NUMBER]; card=[REDACTED_CREDIT_CARD]; [REDACTED_ASSIGNED_SECRET]; [REDACTED_ASSIGNED_SECRET]; Authorization: [REDACTED_BEARER_TOKEN]'
+_ test_private_key_redacts_complete_block_and_matching_footer[\n-PRIVATE KEY] _
+tests\test_pii_detector.py:207: in test_private_key_redacts_complete_block_and_matching_footer
+    assert len(findings) == 1
+E   AssertionError: assert 35 == 1
+E    +  where 35 = len('Before\n[REDACTED_PRIVATE_KEY]\nAfter')
+_ test_private_key_redacts_complete_block_and_matching_footer[\n-RSA PRIVATE KEY] _
+tests\test_pii_detector.py:207: in test_private_key_redacts_complete_block_and_matching_footer
+    assert len(findings) == 1
+E   AssertionError: assert 35 == 1
+E    +  where 35 = len('Before\n[REDACTED_PRIVATE_KEY]\nAfter')
+_ test_private_key_redacts_complete_block_and_matching_footer[\n-EC PRIVATE KEY] _
+tests\test_pii_detector.py:207: in test_private_key_redacts_complete_block_and_matching_footer
+    assert len(findings) == 1
+E   AssertionError: assert 35 == 1
+E    +  where 35 = len('Before\n[REDACTED_PRIVATE_KEY]\nAfter')
+_ test_private_key_redacts_complete_block_and_matching_footer[\n-DSA PRIVATE KEY] _
+tests\test_pii_detector.py:207: in test_private_key_redacts_complete_block_and_matching_footer
+    assert len(findings) == 1
+E   AssertionError: assert 35 == 1
+E    +  where 35 = len('Before\n[REDACTED_PRIVATE_KEY]\nAfter')
+_ test_private_key_redacts_complete_block_and_matching_footer[\n-OPENSSH PRIVATE KEY] _
+tests\test_pii_detector.py:207: in test_private_key_redacts_complete_block_and_matching_footer
+    assert len(findings) == 1
+E   AssertionError: assert 35 == 1
+E    +  where 35 = len('Before\n[REDACTED_PRIVATE_KEY]\nAfter')
+_ test_private_key_redacts_complete_block_and_matching_footer[\n-ENCRYPTED PRIVATE KEY] _
+tests\test_pii_detector.py:207: in test_private_key_redacts_complete_block_and_matching_footer
+    assert len(findings) == 1
+E   AssertionError: assert 35 == 1
+E    +  where 35 = len('Before\n[REDACTED_PRIVATE_KEY]\nAfter')
+_ test_private_key_redacts_complete_block_and_matching_footer[\r\n-PRIVATE KEY] _
+tests\test_pii_detector.py:207: in test_private_key_redacts_complete_block_and_matching_footer
+    assert len(findings) == 1
+E   AssertionError: assert 35 == 1
+E    +  where 35 = len('Before\n[REDACTED_PRIVATE_KEY]\nAfter')
+_ test_private_key_redacts_complete_block_and_matching_footer[\r\n-RSA PRIVATE KEY] _
+tests\test_pii_detector.py:207: in test_private_key_redacts_complete_block_and_matching_footer
+    assert len(findings) == 1
+E   AssertionError: assert 35 == 1
+E    +  where 35 = len('Before\n[REDACTED_PRIVATE_KEY]\nAfter')
+_ test_private_key_redacts_complete_block_and_matching_footer[\r\n-EC PRIVATE KEY] _
+tests\test_pii_detector.py:207: in test_private_key_redacts_complete_block_and_matching_footer
+    assert len(findings) == 1
+E   AssertionError: assert 35 == 1
+E    +  where 35 = len('Before\n[REDACTED_PRIVATE_KEY]\nAfter')
+_ test_private_key_redacts_complete_block_and_matching_footer[\r\n-DSA PRIVATE KEY] _
+tests\test_pii_detector.py:207: in test_private_key_redacts_complete_block_and_matching_footer
+    assert len(findings) == 1
+E   AssertionError: assert 35 == 1
+E    +  where 35 = len('Before\n[REDACTED_PRIVATE_KEY]\nAfter')
+_ test_private_key_redacts_complete_block_and_matching_footer[\r\n-OPENSSH PRIVATE KEY] _
+tests\test_pii_detector.py:207: in test_private_key_redacts_complete_block_and_matching_footer
+    assert len(findings) == 1
+E   AssertionError: assert 35 == 1
+E    +  where 35 = len('Before\n[REDACTED_PRIVATE_KEY]\nAfter')
+_ test_private_key_redacts_complete_block_and_matching_footer[\r\n-ENCRYPTED PRIVATE KEY] _
+tests\test_pii_detector.py:207: in test_private_key_redacts_complete_block_and_matching_footer
+    assert len(findings) == 1
+E   AssertionError: assert 35 == 1
+E    +  where 35 = len('Before\n[REDACTED_PRIVATE_KEY]\nAfter')
+____________ test_private_key_does_not_stop_at_a_different_footer _____________
+tests\test_pii_detector.py:220: in test_private_key_does_not_stop_at_a_different_footer
+    assert len(findings) == 1
+E   AssertionError: assert 89 == 1
+E    +  where 89 = len('Before [REDACTED_PRIVATE_KEY]\nSYNTHETIC_KEY_PART_TWO\n-----END RSA PRIVATE KEY----- after.')
+__________ test_two_private_keys_do_not_swallow_text_between_blocks ___________
+tests\test_pii_detector.py:227: in test_two_private_keys_do_not_swallow_text_between_blocks
+    assert len(findings) == 2
+E   AssertionError: assert 57 == 2
+E    +  where 57 = len('[REDACTED_PRIVATE_KEY]\nPublic text\n[REDACTED_PRIVATE_KEY]')
+___________ test_truncated_private_key_redacts_sensitive_remainder ____________
+tests\test_pii_detector.py:234: in test_truncated_private_key_redacts_sensitive_remainder
+    assert len(findings) == 1
+E   AssertionError: assert 29 == 1
+E    +  where 29 = len('Before\n[REDACTED_PRIVATE_KEY]')
+_ test_overlapping_secrets_are_redacted_once_without_leaking_fragments[assigned-provider] _
+tests\test_pii_detector.py:252: in test_overlapping_secrets_are_redacted_once_without_leaking_fragments
+    assert redacted == f"Before [REDACTED_{labels}]; after."
+E   AssertionError: assert [PIIFinding(entity_type='ASSIGNED_SECRET', start=16, end=80), PIIFinding(entity_type='OPENAI_API_KEY', start=16, end=80)] == 'Before [REDACTED_ASSIGNED_SECRET_OPENAI_API_KEY]; after.'
+_ test_overlapping_secrets_are_redacted_once_without_leaking_fragments[assigned-provider-jwt] _
+tests\test_pii_detector.py:252: in test_overlapping_secrets_are_redacted_once_without_leaking_fragments
+    assert redacted == f"Before [REDACTED_{labels}]; after."
+E   AssertionError: assert [PIIFinding(entity_type='ASSIGNED_SECRET', start=16, end=108), PIIFinding(entity_type='OPENAI_API_KEY', start=16, end=58)] == 'Before [REDACTED_ASSIGNED_SECRET_JWT_OPENAI_API_KEY]; after.'
+_ test_overlapping_secrets_are_redacted_once_without_leaking_fragments[quoted-bearer-jwt] _
+tests\test_pii_detector.py:252: in test_overlapping_secrets_are_redacted_once_without_leaking_fragments
+    assert redacted == f"Before [REDACTED_{labels}]; after."
+E   AssertionError: assert [PIIFinding(entity_type='ASSIGNED_SECRET', start=21, end=27), PIIFinding(entity_type='BEARER_TOKEN', start=28, end=102), PIIFinding(entity_type='JWT', start=28, end=102)] == 'Before [REDACTED_ASSIGNED_SECRET_BEARER_TOKEN_JWT]; after.'
+_ test_overlapping_secrets_are_redacted_once_without_leaking_fragments[crossing-bearer-jwt] _
+tests\test_pii_detector.py:252: in test_overlapping_secrets_are_redacted_once_without_leaking_fragments
+    assert redacted == f"Before [REDACTED_{labels}]; after."
+E   AssertionError: assert [PIIFinding(entity_type='ASSIGNED_SECRET', start=20, end=26), PIIFinding(entity_type='BEARER_TOKEN', start=27, end=101), PIIFinding(entity_type='JWT', start=27, end=101)] == 'Before [REDACTED_ASSIGNED_SECRET_BEARER_TOKEN_JWT]; after.'
+_ test_overlapping_secrets_are_redacted_once_without_leaking_fragments[all-secret-rules] _
+tests\test_pii_detector.py:252: in test_overlapping_secrets_are_redacted_once_without_leaking_fragments
+    assert redacted == f"Before [REDACTED_{labels}]; after."
+E   AssertionError: assert [PIIFinding(entity_type='ASSIGNED_SECRET', start=16, end=22), PIIFinding(entity_type='BEARER_TOKEN', start=23, end=115), PIIFinding(entity_type='OPENAI_API_KEY', start=23, end=65)] == 'Before [REDACTED_ASSIGNED_SECRET_BEARER_TOKEN_JWT_OPENAI_API_KEY]; after.'
+________ test_private_key_overlapping_nested_secrets_is_fully_redacted ________
+tests\test_pii_detector.py:265: in test_private_key_overlapping_nested_secrets_is_fully_redacted
+    assert {finding.entity_type for finding in findings} == {
+            ^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'entity_type'
+_________________ test_separate_findings_preserve_separators __________________
+tests\test_pii_detector.py:274: in test_separate_findings_preserve_separators
+    assert redacted == "[REDACTED_EMAIL],[REDACTED_EMAIL];[REDACTED_ASSIGNED_SECRET];[REDACTED_ASSIGNED_SECRET]"
+E   AssertionError: assert [PIIFinding(entity_type='EMAIL', start=0, end=18), PIIFinding(entity_type='EMAIL', start=19, end=35), PIIFinding(entity_type='ASSIGNED_SECRET', start=44, end=57), PIIFinding(entity_type='ASSIGNED_SECRET', start=67, end=80)] == '[REDACTED_EMAIL],[REDACTED_EMAIL];[REDACTED_ASSIGNED_SECRET];[REDACTED_ASSIGNED_SECRET]'
+______________ test_empty_input_has_no_findings_and_is_unchanged ______________
+tests\test_pii_detector.py:279: in test_empty_input_has_no_findings_and_is_unchanged
+    assert detect_and_redact_pii("") == ([], "")
+E   AssertionError: assert ('', []) == ([], '')
+E     
+E     At index 0 diff: '' != []
+E     Use -v to get more diff
+=========================== short test summary info ===========================
+FAILED tests/test_pii_detector.py::test_detect_and_redact_sensitive_value[email]
+FAILED tests/test_pii_detector.py::test_detect_and_redact_sensitive_value[indian-mobile]
+FAILED tests/test_pii_detector.py::test_detect_and_redact_sensitive_value[test-card]
+FAILED tests/test_pii_detector.py::test_detect_and_redact_sensitive_value[api-assignment]
+FAILED tests/test_pii_detector.py::test_detect_and_redact_sensitive_value[bearer]
+FAILED tests/test_pii_detector.py::test_detect_and_redact_sensitive_value[password]
+FAILED tests/test_pii_detector.py::test_detect_and_redact_sensitive_value[jwt]
+FAILED tests/test_pii_detector.py::test_indian_mobile_formats[9000000000] - A...
+FAILED tests/test_pii_detector.py::test_indian_mobile_formats[90000 00000] - ...
+FAILED tests/test_pii_detector.py::test_indian_mobile_formats[90000.00000] - ...
+FAILED tests/test_pii_detector.py::test_indian_mobile_formats[+91-90000-00000]
+FAILED tests/test_pii_detector.py::test_luhn_valid_test_card_numbers[4111111111111111]
+FAILED tests/test_pii_detector.py::test_luhn_valid_test_card_numbers[4242 4242 4242 4242]
+FAILED tests/test_pii_detector.py::test_luhn_valid_test_card_numbers[5555-5555-5555-4444]
+FAILED tests/test_pii_detector.py::test_number_failing_luhn_is_not_classified_as_a_card[4111111111111112]
+FAILED tests/test_pii_detector.py::test_number_failing_luhn_is_not_classified_as_a_card[4242 4242 4242 4243]
+FAILED tests/test_pii_detector.py::test_number_failing_luhn_is_not_classified_as_a_card[5555-5555-5555-4445]
+FAILED tests/test_pii_detector.py::test_supported_provider_specific_formats_are_fully_redacted[openai-style]
+FAILED tests/test_pii_detector.py::test_supported_provider_specific_formats_are_fully_redacted[project-style]
+FAILED tests/test_pii_detector.py::test_supported_provider_specific_formats_are_fully_redacted[trailing-hyphen]
+FAILED tests/test_pii_detector.py::test_supported_provider_specific_formats_are_fully_redacted[github-token]
+FAILED tests/test_pii_detector.py::test_supported_provider_specific_formats_are_fully_redacted[github-pat]
+FAILED tests/test_pii_detector.py::test_supported_provider_specific_formats_are_fully_redacted[aws-akia]
+FAILED tests/test_pii_detector.py::test_supported_provider_specific_formats_are_fully_redacted[aws-asia]
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments[api_key=example_secret]
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments[API-KEY: example_secret]
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments[api_key="synthetic secret with spaces"]
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments[api_key='synthetic,secret;with=punctuation']
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments["api_key": "synthetic_json_secret"]
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments['password': 'synthetic_dict_secret']
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments[OPENAI_API_KEY=example_secret]
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments[MY_APP_CLIENT_SECRET=synthetic_client_secret]
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments[password="synthetic\\"quoted\\"secret"]
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments[password='synthetic\\'quoted\\'secret']
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments[token=synthetic_token]
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments[secret: synthetic_secret]
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments[api_key="None"]
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments[api_key="null"]
+FAILED tests/test_pii_detector.py::test_empty_placeholder_or_harmless_text_is_unchanged[Ordinary text with no sensitive values.]
+FAILED tests/test_pii_detector.py::test_empty_placeholder_or_harmless_text_is_unchanged[Explain what token, password, secret, and API key mean.]
+FAILED tests/test_pii_detector.py::test_empty_placeholder_or_harmless_text_is_unchanged[The token and password should be kept secret.]
+FAILED tests/test_pii_detector.py::test_empty_placeholder_or_harmless_text_is_unchanged[api_key_count=3; token_count=4; password_length=12]
+FAILED tests/test_pii_detector.py::test_empty_placeholder_or_harmless_text_is_unchanged[secretary=synthetic_name]
+FAILED tests/test_pii_detector.py::test_empty_placeholder_or_harmless_text_is_unchanged[api_key=]
+FAILED tests/test_pii_detector.py::test_empty_placeholder_or_harmless_text_is_unchanged[api_key =   ]
+FAILED tests/test_pii_detector.py::test_empty_placeholder_or_harmless_text_is_unchanged[api_key=""]
+FAILED tests/test_pii_detector.py::test_empty_placeholder_or_harmless_text_is_unchanged[password='']
+FAILED tests/test_pii_detector.py::test_empty_placeholder_or_harmless_text_is_unchanged[secret="   "]
+FAILED tests/test_pii_detector.py::test_empty_placeholder_or_harmless_text_is_unchanged[api_key = None]
+FAILED tests/test_pii_detector.py::test_empty_placeholder_or_harmless_text_is_unchanged[api_key=null]
+FAILED tests/test_pii_detector.py::test_empty_placeholder_or_harmless_text_is_unchanged["api_key": null]
+FAILED tests/test_pii_detector.py::test_empty_placeholder_or_harmless_text_is_unchanged[access_token=undefined]
+FAILED tests/test_pii_detector.py::test_empty_placeholder_or_harmless_text_is_unchanged[secret=False]
+FAILED tests/test_pii_detector.py::test_empty_placeholder_or_harmless_text_is_unchanged[token=True]
+FAILED tests/test_pii_detector.py::test_empty_placeholder_or_harmless_text_is_unchanged[api_key={} ; token=[]]
+FAILED tests/test_pii_detector.py::test_empty_placeholder_or_harmless_text_is_unchanged[api_key=\nThis next line is public.]
+FAILED tests/test_pii_detector.py::test_empty_placeholder_or_harmless_text_is_unchanged[password: \r\nThis next line is public.]
+FAILED tests/test_pii_detector.py::test_empty_placeholder_or_harmless_text_is_unchanged[Bearer]
+FAILED tests/test_pii_detector.py::test_unterminated_quoted_assignment_redacts_to_line_end[\n-api_key="synthetic_unterminated]
+FAILED tests/test_pii_detector.py::test_unterminated_quoted_assignment_redacts_to_line_end[\n-password='synthetic_unterminated]
+FAILED tests/test_pii_detector.py::test_unterminated_quoted_assignment_redacts_to_line_end[\r\n-api_key="synthetic_unterminated]
+FAILED tests/test_pii_detector.py::test_unterminated_quoted_assignment_redacts_to_line_end[\r\n-password='synthetic_unterminated]
+FAILED tests/test_pii_detector.py::test_empty_assignment_does_not_hide_a_subsequent_secret
+FAILED tests/test_pii_detector.py::test_multiple_sensitive_values_are_all_redacted_with_original_offsets
+FAILED tests/test_pii_detector.py::test_private_key_redacts_complete_block_and_matching_footer[\n-PRIVATE KEY]
+FAILED tests/test_pii_detector.py::test_private_key_redacts_complete_block_and_matching_footer[\n-RSA PRIVATE KEY]
+FAILED tests/test_pii_detector.py::test_private_key_redacts_complete_block_and_matching_footer[\n-EC PRIVATE KEY]
+FAILED tests/test_pii_detector.py::test_private_key_redacts_complete_block_and_matching_footer[\n-DSA PRIVATE KEY]
+FAILED tests/test_pii_detector.py::test_private_key_redacts_complete_block_and_matching_footer[\n-OPENSSH PRIVATE KEY]
+FAILED tests/test_pii_detector.py::test_private_key_redacts_complete_block_and_matching_footer[\n-ENCRYPTED PRIVATE KEY]
+FAILED tests/test_pii_detector.py::test_private_key_redacts_complete_block_and_matching_footer[\r\n-PRIVATE KEY]
+FAILED tests/test_pii_detector.py::test_private_key_redacts_complete_block_and_matching_footer[\r\n-RSA PRIVATE KEY]
+FAILED tests/test_pii_detector.py::test_private_key_redacts_complete_block_and_matching_footer[\r\n-EC PRIVATE KEY]
+FAILED tests/test_pii_detector.py::test_private_key_redacts_complete_block_and_matching_footer[\r\n-DSA PRIVATE KEY]
+FAILED tests/test_pii_detector.py::test_private_key_redacts_complete_block_and_matching_footer[\r\n-OPENSSH PRIVATE KEY]
+FAILED tests/test_pii_detector.py::test_private_key_redacts_complete_block_and_matching_footer[\r\n-ENCRYPTED PRIVATE KEY]
+FAILED tests/test_pii_detector.py::test_private_key_does_not_stop_at_a_different_footer
+FAILED tests/test_pii_detector.py::test_two_private_keys_do_not_swallow_text_between_blocks
+FAILED tests/test_pii_detector.py::test_truncated_private_key_redacts_sensitive_remainder
+FAILED tests/test_pii_detector.py::test_overlapping_secrets_are_redacted_once_without_leaking_fragments[assigned-provider]
+FAILED tests/test_pii_detector.py::test_overlapping_secrets_are_redacted_once_without_leaking_fragments[assigned-provider-jwt]
+FAILED tests/test_pii_detector.py::test_overlapping_secrets_are_redacted_once_without_leaking_fragments[quoted-bearer-jwt]
+FAILED tests/test_pii_detector.py::test_overlapping_secrets_are_redacted_once_without_leaking_fragments[crossing-bearer-jwt]
+FAILED tests/test_pii_detector.py::test_overlapping_secrets_are_redacted_once_without_leaking_fragments[all-secret-rules]
+FAILED tests/test_pii_detector.py::test_private_key_overlapping_nested_secrets_is_fully_redacted
+FAILED tests/test_pii_detector.py::test_separate_findings_preserve_separators
+FAILED tests/test_pii_detector.py::test_empty_input_has_no_findings_and_is_unchanged
+87 failed, 434 passed in 2.99s

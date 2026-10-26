@@ -1,0 +1,227 @@
+...FFF..................FFFFFFFFFFFFFF....................FFFFFF........ [ 71%]
+.......FFFFFFF...............                                            [100%]
+================================== FAILURES ===================================
+___________ test_detect_and_redact_sensitive_value[api-assignment] ____________
+tests\test_pii_detector.py:46: in test_detect_and_redact_sensitive_value
+    assert any(
+E   assert False
+E    +  where False = any(<generator object test_detect_and_redact_sensitive_value.<locals>.<genexpr> at 0x0000016B080B0B80>)
+_______________ test_detect_and_redact_sensitive_value[bearer] ________________
+tests\test_pii_detector.py:46: in test_detect_and_redact_sensitive_value
+    assert any(
+E   assert False
+E    +  where False = any(<generator object test_detect_and_redact_sensitive_value.<locals>.<genexpr> at 0x0000016B080B13F0>)
+______________ test_detect_and_redact_sensitive_value[password] _______________
+tests\test_pii_detector.py:46: in test_detect_and_redact_sensitive_value
+    assert any(
+E   assert False
+E    +  where False = any(<generator object test_detect_and_redact_sensitive_value.<locals>.<genexpr> at 0x0000016B080B1A80>)
+_________ test_contextual_secret_assignments[api_key=example_secret] __________
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+E   assert False
+E    +  where False = any(<generator object test_contextual_secret_assignments.<locals>.<genexpr> at 0x0000016B0915B140>)
+_________ test_contextual_secret_assignments[API-KEY: example_secret] _________
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+E   assert False
+E    +  where False = any(<generator object test_contextual_secret_assignments.<locals>.<genexpr> at 0x0000016B0915BAE0>)
+_ test_contextual_secret_assignments[api_key="synthetic secret with spaces"] __
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+E   assert False
+E    +  where False = any(<generator object test_contextual_secret_assignments.<locals>.<genexpr> at 0x0000016B09108580>)
+_ test_contextual_secret_assignments[api_key='synthetic,secret;with=punctuation'] _
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+E   assert False
+E    +  where False = any(<generator object test_contextual_secret_assignments.<locals>.<genexpr> at 0x0000016B091092A0>)
+___ test_contextual_secret_assignments["api_key": "synthetic_json_secret"] ____
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+E   assert False
+E    +  where False = any(<generator object test_contextual_secret_assignments.<locals>.<genexpr> at 0x0000016B09109FC0>)
+___ test_contextual_secret_assignments['password': 'synthetic_dict_secret'] ___
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+E   assert False
+E    +  where False = any(<generator object test_contextual_secret_assignments.<locals>.<genexpr> at 0x0000016B0910A960>)
+______ test_contextual_secret_assignments[OPENAI_API_KEY=example_secret] ______
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+E   assert False
+E    +  where False = any(<generator object test_contextual_secret_assignments.<locals>.<genexpr> at 0x0000016B0910B300>)
+_ test_contextual_secret_assignments[MY_APP_CLIENT_SECRET=synthetic_client_secret] _
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+E   assert False
+E    +  where False = any(<generator object test_contextual_secret_assignments.<locals>.<genexpr> at 0x0000016B0910BCA0>)
+_ test_contextual_secret_assignments[password="synthetic\\"quoted\\"secret"] __
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+E   assert False
+E    +  where False = any(<generator object test_contextual_secret_assignments.<locals>.<genexpr> at 0x0000016B0910B3E0>)
+_ test_contextual_secret_assignments[password='synthetic\\'quoted\\'secret'] __
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+E   assert False
+E    +  where False = any(<generator object test_contextual_secret_assignments.<locals>.<genexpr> at 0x0000016B0910AA40>)
+__________ test_contextual_secret_assignments[token=synthetic_token] __________
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+E   assert False
+E    +  where False = any(<generator object test_contextual_secret_assignments.<locals>.<genexpr> at 0x0000016B0910A0A0>)
+________ test_contextual_secret_assignments[secret: synthetic_secret] _________
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+E   assert False
+E    +  where False = any(<generator object test_contextual_secret_assignments.<locals>.<genexpr> at 0x0000016B09109460>)
+_____________ test_contextual_secret_assignments[api_key="None"] ______________
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+E   assert False
+E    +  where False = any(<generator object test_contextual_secret_assignments.<locals>.<genexpr> at 0x0000016B091089E0>)
+_____________ test_contextual_secret_assignments[api_key="null"] ______________
+tests\test_pii_detector.py:124: in test_contextual_secret_assignments
+    assert any(
+E   assert False
+E    +  where False = any(<generator object test_contextual_secret_assignments.<locals>.<genexpr> at 0x0000016B07FC5620>)
+_ test_unterminated_quoted_assignment_redacts_to_line_end[\n-api_key="synthetic_unterminated] _
+tests\test_pii_detector.py:167: in test_unterminated_quoted_assignment_redacts_to_line_end
+    assert text[findings[0].start:findings[0].end] == assignment
+E   assert 'synthetic_unterminated' == 'api_key="syn..._unterminated'
+E     
+E     - api_key="synthetic_unterminated
+E     ? ---------
+E     + synthetic_unterminated
+_ test_unterminated_quoted_assignment_redacts_to_line_end[\n-password='synthetic_unterminated] _
+tests\test_pii_detector.py:167: in test_unterminated_quoted_assignment_redacts_to_line_end
+    assert text[findings[0].start:findings[0].end] == assignment
+E   assert 'synthetic_unterminated' == "password='sy..._unterminated"
+E     
+E     - password='synthetic_unterminated
+E     ? ----------
+E     + synthetic_unterminated
+_ test_unterminated_quoted_assignment_redacts_to_line_end[\r\n-api_key="synthetic_unterminated] _
+tests\test_pii_detector.py:167: in test_unterminated_quoted_assignment_redacts_to_line_end
+    assert text[findings[0].start:findings[0].end] == assignment
+E   assert 'synthetic_unterminated' == 'api_key="syn..._unterminated'
+E     
+E     - api_key="synthetic_unterminated
+E     ? ---------
+E     + synthetic_unterminated
+_ test_unterminated_quoted_assignment_redacts_to_line_end[\r\n-password='synthetic_unterminated] _
+tests\test_pii_detector.py:167: in test_unterminated_quoted_assignment_redacts_to_line_end
+    assert text[findings[0].start:findings[0].end] == assignment
+E   assert 'synthetic_unterminated' == "password='sy..._unterminated"
+E     
+E     - password='synthetic_unterminated
+E     ? ----------
+E     + synthetic_unterminated
+___________ test_empty_assignment_does_not_hide_a_subsequent_secret ___________
+tests\test_pii_detector.py:175: in test_empty_assignment_does_not_hide_a_subsequent_secret
+    assert redacted == 'api_key="";[REDACTED_ASSIGNED_SECRET]'
+E   assert 'api_key="";p...IGNED_SECRET]' == 'api_key="";[...IGNED_SECRET]'
+E     
+E     - api_key="";[REDACTED_ASSIGNED_SECRET]
+E     + api_key="";password=[REDACTED_ASSIGNED_SECRET]
+E     ?            +++++++++
+____ test_multiple_sensitive_values_are_all_redacted_with_original_offsets ____
+tests\test_pii_detector.py:185: in test_multiple_sensitive_values_are_all_redacted_with_original_offsets
+    assert redacted == (
+E   AssertionError: assert '[REDACTED_EM...BEARER_TOKEN]' == 'Email=[REDAC...BEARER_TOKEN]'
+E     
+E     - Email=[REDACTED_EMAIL]; phone=[REDACTED_PHONE_NUMBER]; card=[REDACTED_CREDIT_CARD]; [REDACTED_ASSIGNED_SECRET]; [REDACTED_ASSIGNED_SECRET]; Authorization: [REDACTED_BEARER_TOKEN]
+E     ? ------
+E     + [REDACTED_EMAIL]; phone=[REDACTED_PHONE_NUMBER]; card=[REDACTED_CREDIT_CARD]; api_key=[REDACTED_ASSIGNED_SECRET]; password=[REDACTED_ASSIGNED_SECRET]; Authorization: Bearer [REDACTED_BEARER_TOKEN]
+E     ?                                                                               ++++++++                            +++++++++                                          +++++++
+_ test_overlapping_secrets_are_redacted_once_without_leaking_fragments[assigned-provider] _
+tests\test_pii_detector.py:252: in test_overlapping_secrets_are_redacted_once_without_leaking_fragments
+    assert redacted == f"Before [REDACTED_{labels}]; after."
+E   assert 'Before api_k...KEY]"; after.' == 'Before [REDA..._KEY]; after.'
+E     
+E     - Before [REDACTED_ASSIGNED_SECRET_OPENAI_API_KEY]; after.
+E     + Before api_key="[REDACTED_ASSIGNED_SECRET_OPENAI_API_KEY]"; after.
+E     ?        +++++++++                                         +
+_ test_overlapping_secrets_are_redacted_once_without_leaking_fragments[assigned-provider-jwt] _
+tests\test_pii_detector.py:252: in test_overlapping_secrets_are_redacted_once_without_leaking_fragments
+    assert redacted == f"Before [REDACTED_{labels}]; after."
+E   assert 'Before api_k...KEY]"; after.' == 'Before [REDA..._KEY]; after.'
+E     
+E     - Before [REDACTED_ASSIGNED_SECRET_JWT_OPENAI_API_KEY]; after.
+E     ?                                  ----
+E     + Before api_key="[REDACTED_ASSIGNED_SECRET_OPENAI_API_KEY]"; after.
+E     ?        +++++++++                                         +
+_ test_overlapping_secrets_are_redacted_once_without_leaking_fragments[quoted-bearer-jwt] _
+tests\test_pii_detector.py:252: in test_overlapping_secrets_are_redacted_once_without_leaking_fragments
+    assert redacted == f"Before [REDACTED_{labels}]; after."
+E   assert 'Before acces...JWT]"; after.' == 'Before [REDA..._JWT]; after.'
+E     
+E     - Before [REDACTED_ASSIGNED_SECRET_BEARER_TOKEN_JWT]; after.
+E     + Before access_token="[REDACTED_ASSIGNED_SECRET_BEARER_TOKEN_JWT]"; after.
+E     ?        ++++++++++++++                                           +
+_ test_overlapping_secrets_are_redacted_once_without_leaking_fragments[crossing-bearer-jwt] _
+tests\test_pii_detector.py:252: in test_overlapping_secrets_are_redacted_once_without_leaking_fragments
+    assert redacted == f"Before [REDACTED_{labels}]; after."
+E   AssertionError: assert 'Before acces..._JWT]; after.' == 'Before [REDA..._JWT]; after.'
+E     
+E     - Before [REDACTED_ASSIGNED_SECRET_BEARER_TOKEN_JWT]; after.
+E     + Before access_token=[REDACTED_ASSIGNED_SECRET] [REDACTED_BEARER_TOKEN_JWT]; after.
+E     ?        +++++++++++++                         +++++++++++
+_ test_overlapping_secrets_are_redacted_once_without_leaking_fragments[all-secret-rules] _
+tests\test_pii_detector.py:252: in test_overlapping_secrets_are_redacted_once_without_leaking_fragments
+    assert redacted == f"Before [REDACTED_{labels}]; after."
+E   assert 'Before api_k...KEY]"; after.' == 'Before [REDA..._KEY]; after.'
+E     
+E     - Before [REDACTED_ASSIGNED_SECRET_BEARER_TOKEN_JWT_OPENAI_API_KEY]; after.
+E     ?                                               ----
+E     + Before api_key="[REDACTED_ASSIGNED_SECRET_BEARER_TOKEN_OPENAI_API_KEY]"; after.
+E     ?        +++++++++                                                      +
+________ test_private_key_overlapping_nested_secrets_is_fully_redacted ________
+tests\test_pii_detector.py:265: in test_private_key_overlapping_nested_secrets_is_fully_redacted
+    assert {finding.entity_type for finding in findings} == {
+E   AssertionError: assert {'ASSIGNED_SE...'PRIVATE_KEY'} == {'ASSIGNED_SE...'PRIVATE_KEY'}
+E     
+E     Extra items in the right set:
+E     'JWT'
+E     Use -v to get more diff
+_________________ test_separate_findings_preserve_separators __________________
+tests\test_pii_detector.py:274: in test_separate_findings_preserve_separators
+    assert redacted == "[REDACTED_EMAIL],[REDACTED_EMAIL];[REDACTED_ASSIGNED_SECRET];[REDACTED_ASSIGNED_SECRET]"
+E   AssertionError: assert '[REDACTED_EM...IGNED_SECRET]' == '[REDACTED_EM...IGNED_SECRET]'
+E     
+E     - [REDACTED_EMAIL],[REDACTED_EMAIL];[REDACTED_ASSIGNED_SECRET];[REDACTED_ASSIGNED_SECRET]
+E     + [REDACTED_EMAIL],[REDACTED_EMAIL];api_key=[REDACTED_ASSIGNED_SECRET];password=[REDACTED_ASSIGNED_SECRET]
+E     ?                                   ++++++++                           +++++++++
+=========================== short test summary info ===========================
+FAILED tests/test_pii_detector.py::test_detect_and_redact_sensitive_value[api-assignment]
+FAILED tests/test_pii_detector.py::test_detect_and_redact_sensitive_value[bearer]
+FAILED tests/test_pii_detector.py::test_detect_and_redact_sensitive_value[password]
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments[api_key=example_secret]
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments[API-KEY: example_secret]
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments[api_key="synthetic secret with spaces"]
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments[api_key='synthetic,secret;with=punctuation']
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments["api_key": "synthetic_json_secret"]
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments['password': 'synthetic_dict_secret']
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments[OPENAI_API_KEY=example_secret]
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments[MY_APP_CLIENT_SECRET=synthetic_client_secret]
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments[password="synthetic\\"quoted\\"secret"]
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments[password='synthetic\\'quoted\\'secret']
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments[token=synthetic_token]
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments[secret: synthetic_secret]
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments[api_key="None"]
+FAILED tests/test_pii_detector.py::test_contextual_secret_assignments[api_key="null"]
+FAILED tests/test_pii_detector.py::test_unterminated_quoted_assignment_redacts_to_line_end[\n-api_key="synthetic_unterminated]
+FAILED tests/test_pii_detector.py::test_unterminated_quoted_assignment_redacts_to_line_end[\n-password='synthetic_unterminated]
+FAILED tests/test_pii_detector.py::test_unterminated_quoted_assignment_redacts_to_line_end[\r\n-api_key="synthetic_unterminated]
+FAILED tests/test_pii_detector.py::test_unterminated_quoted_assignment_redacts_to_line_end[\r\n-password='synthetic_unterminated]
+FAILED tests/test_pii_detector.py::test_empty_assignment_does_not_hide_a_subsequent_secret
+FAILED tests/test_pii_detector.py::test_multiple_sensitive_values_are_all_redacted_with_original_offsets
+FAILED tests/test_pii_detector.py::test_overlapping_secrets_are_redacted_once_without_leaking_fragments[assigned-provider]
+FAILED tests/test_pii_detector.py::test_overlapping_secrets_are_redacted_once_without_leaking_fragments[assigned-provider-jwt]
+FAILED tests/test_pii_detector.py::test_overlapping_secrets_are_redacted_once_without_leaking_fragments[quoted-bearer-jwt]
+FAILED tests/test_pii_detector.py::test_overlapping_secrets_are_redacted_once_without_leaking_fragments[crossing-bearer-jwt]
+FAILED tests/test_pii_detector.py::test_overlapping_secrets_are_redacted_once_without_leaking_fragments[all-secret-rules]
+FAILED tests/test_pii_detector.py::test_private_key_overlapping_nested_secrets_is_fully_redacted
+FAILED tests/test_pii_detector.py::test_separate_findings_preserve_separators
+30 failed, 71 passed in 1.41s

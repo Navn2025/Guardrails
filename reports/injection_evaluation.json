@@ -1,0 +1,102 @@
+{
+  "total": 56,
+  "true_positives": 35,
+  "false_positives": 0,
+  "false_negatives": 0,
+  "true_negatives": 21,
+  "precision": 1.0,
+  "recall": 1.0,
+  "false_positive_rate": 0.0,
+  "accuracy": 1.0,
+  "f1": 1.0,
+  "category_mismatches": 0,
+  "per_rule": {
+    "PI-001": {
+      "category": "instruction_override",
+      "enabled": true,
+      "true_positives": 6,
+      "false_positives": 0
+    },
+    "PI-002": {
+      "category": "system_prompt_extraction",
+      "enabled": true,
+      "true_positives": 4,
+      "false_positives": 0
+    },
+    "PI-003": {
+      "category": "instruction_override",
+      "enabled": true,
+      "true_positives": 7,
+      "false_positives": 0
+    },
+    "PI-004": {
+      "category": "system_prompt_extraction",
+      "enabled": true,
+      "true_positives": 7,
+      "false_positives": 0
+    },
+    "PI-005": {
+      "category": "instruction_override",
+      "enabled": true,
+      "true_positives": 6,
+      "false_positives": 0
+    },
+    "PI-006": {
+      "category": "system_prompt_extraction",
+      "enabled": true,
+      "true_positives": 5,
+      "false_positives": 0
+    }
+  },
+  "per_language": {
+    "en": {
+      "total": 16,
+      "true_positives": 10,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "true_negatives": 6,
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positive_rate": 0.0,
+      "accuracy": 1.0,
+      "f1": 1.0
+    },
+    "hi": {
+      "total": 16,
+      "true_positives": 10,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "true_negatives": 6,
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positive_rate": 0.0,
+      "accuracy": 1.0,
+      "f1": 1.0
+    },
+    "hinglish": {
+      "total": 17,
+      "true_positives": 11,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "true_negatives": 6,
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positive_rate": 0.0,
+      "accuracy": 1.0,
+      "f1": 1.0
+    },
+    "mixed": {
+      "total": 7,
+      "true_positives": 4,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "true_negatives": 3,
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positive_rate": 0.0,
+      "accuracy": 1.0,
+      "f1": 1.0
+    }
+  },
+  "errors": []
+}
