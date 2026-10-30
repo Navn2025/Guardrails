@@ -1,8 +1,8 @@
-from app.main import app
+from input_output_guardrails.app.main import app
 from pydantic import BaseModel,Field
 from fastapi import HTTPException
 
-from app.gaurdrails.input_gaurds import validate_input, GuardrailResult
+from input_output_guardrails.app.gaurdrails.input_gaurds import validate_input, GuardrailResult
 
 class GuardrailRequest(BaseModel):
     text: str = Field(..., description="The input text to validate.",min_length=1, max_length=10000)

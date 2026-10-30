@@ -2,9 +2,9 @@ import json
 
 import pytest
 
-from app.gaurdrails import evaluation
-from app.gaurdrails.guardrail_result import DetectionResult
-from app.gaurdrails.input_gaurds import detect_prompt_injection, validate_input
+from input_output_guardrails.app.gaurdrails import evaluation
+from input_output_guardrails.app.gaurdrails.guardrail_result import DetectionResult
+from input_output_guardrails.app.gaurdrails.input_gaurds import detect_prompt_injection, validate_input
 
 CASES = evaluation.load_cases(evaluation.DEFAULT_DATASET)
 

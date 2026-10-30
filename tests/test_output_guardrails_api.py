@@ -7,8 +7,8 @@ from unittest.mock import AsyncMock
 import pytest
 from fastapi.testclient import TestClient
 
-import app.main as api
-from app.services import llm_service
+import input_output_guardrails.app.main as api
+from input_output_guardrails.app.services import llm_service
 
 
 @pytest.fixture

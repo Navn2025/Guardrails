@@ -37,7 +37,7 @@ if __name__ == "__main__":
         get_llm_response(test_prompt)
     )
 
-    from app.gaurdrails.outpiut_gaurds import validate_output
+    from input_output_guardrails.app.gaurdrails.output_gaurds import validate_output
 
     result = validate_output(response)
     print(result.safe_text if result.allowed else "Output blocked.")

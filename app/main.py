@@ -1,10 +1,10 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
-from app.gaurdrails.input_gaurds import validate_input
-from app.gaurdrails.outpiut_gaurds import validate_output
-from app.gaurdrails.pii_detector import detect_and_redact_pii
-from app.services.llm_service import get_llm_response
+from input_output_guardrails.app.gaurdrails.input_gaurds import validate_input
+from input_output_guardrails.app.gaurdrails.output_gaurds import validate_output
+from input_output_guardrails.app.gaurdrails.pii_detector import detect_and_redact_pii
+from input_output_guardrails.app.services.llm_service import get_llm_response
 
 app = FastAPI(
     title="LLM Guardrails API",

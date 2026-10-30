@@ -5,10 +5,10 @@ from dataclasses import asdict, replace
 
 import pytest
 
-from app.gaurdrails import input_gaurds
-from app.gaurdrails.guardrail_result import DetectionResult
-from app.gaurdrails.input_gaurds import detect_prompt_injection, normalize_input, validate_input
-from app.gaurdrails.rules import RULES, GuardrailRule
+from input_output_guardrails.app.gaurdrails import input_gaurds
+from input_output_guardrails.app.gaurdrails.guardrail_result import DetectionResult
+from input_output_guardrails.app.gaurdrails.input_gaurds import detect_prompt_injection, normalize_input, validate_input
+from input_output_guardrails.app.gaurdrails.rules import RULES, GuardrailRule
 
 
 RULE_EXAMPLES = [

@@ -5,12 +5,12 @@ from dataclasses import asdict
 
 import pytest
 
-from app.gaurdrails import outpiut_gaurds as guards
-from app.gaurdrails.outpiut_gaurds import (
+from input_output_guardrails.app.gaurdrails import output_gaurds as guards
+from input_output_guardrails.app.gaurdrails.output_gaurds import (
     MAX_OUTPUT_LENGTH, validate_output, validate_output_policy, validate_output_quality,
 )
-from app.gaurdrails.pii_detector import PIIFinding
-from app.gaurdrails.policies import OutputPolicy
+from input_output_guardrails.app.gaurdrails.pii_detector import PIIFinding
+from input_output_guardrails.app.gaurdrails.policies import OutputPolicy
 
 JWT = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzeW50aGV0aWMifQ.c3ludGhldGljX3NpZ25hdHVyZQ"
 API_KEY = "sk-proj-" + "SyntheticOnly_" * 4

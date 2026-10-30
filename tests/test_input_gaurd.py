@@ -1,6 +1,6 @@
 import pytest
 
-from app.gaurdrails.input_gaurds import (
+from input_output_guardrails.app.gaurdrails.input_gaurds import (
     MAX_INPUT_LENGTH,
     GuardrailResult,
     detect_prompt_injection,

@@ -6,7 +6,7 @@ The card fixtures are standard test numbers, not cardholder data.
 
 import pytest
 
-from app.gaurdrails.pii_detector import (
+from input_output_guardrails.app.gaurdrails.pii_detector import (
     detect_and_redact_pii,
     detect_pii,
     passes_luhn,

@@ -2,7 +2,7 @@
 
 import pytest
 
-from app.gaurdrails.input_gaurds import detect_prompt_injection, validate_input
+from input_output_guardrails.app.gaurdrails.input_gaurds import detect_prompt_injection, validate_input
 
 
 @pytest.mark.parametrize(

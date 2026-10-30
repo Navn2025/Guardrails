@@ -6,10 +6,10 @@ import unicodedata
 from urllib.parse import unquote
 from dataclasses import dataclass
 
-from app.gaurdrails.guardrail_result import RiskLevel
-from app.gaurdrails.input_gaurds import normalize_input
-from app.gaurdrails.pii_detector import PIIFinding, detect_and_redact_pii, detect_pii
-from app.gaurdrails.policies import (
+from input_output_guardrails.app.gaurdrails.guardrail_result import RiskLevel
+from input_output_guardrails.app.gaurdrails.input_gaurds import normalize_input
+from input_output_guardrails.app.gaurdrails.pii_detector import PIIFinding, detect_and_redact_pii, detect_pii
+from input_output_guardrails.app.gaurdrails.policies import (
     BLOCKED_PHRASES, INTERNAL_MARKERS, MAX_OUTPUT_LENGTH, OutputPolicy,
 )
 
@@ -224,3 +224,5 @@ def validate_output(text: str, *, policy: OutputPolicy | None = None) -> OutputG
         detected_categories=categories,
         reason_code="sensitive_data_redacted" if findings else None,
     )
+
+
